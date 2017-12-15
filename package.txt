@@ -1,0 +1,5 @@
+NAME=tzdata
+VERSION=2017b
+REVISION=1
+SRC=http://www.iana.org/time-zones/repository/releases/tzdata2017b.tar.gz
+SRCMD5=50dc0dc50c68644c1f70804f2e7a1625
