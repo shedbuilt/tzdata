@@ -1,5 +1,5 @@
 #!/bin/bash
-ZONEINFO="${SHED_FAKEROOT}/usr/share/zoneinfo"
+ZONEINFO="${SHED_FAKE_ROOT}/usr/share/zoneinfo"
 mkdir -pv $ZONEINFO/{posix,right}
 for tz in etcetera southamerica northamerica europe africa antarctica  \
           asia australasia backward pacificnew systemv; do
