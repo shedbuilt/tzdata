@@ -1,6 +1,8 @@
 NAME=tzdata
-VERSION=2018c
+VERSION=2018e
 REVISION=1
-SRC=http://www.iana.org/time-zones/repository/releases/tzdata2018c.tar.gz
-SRCMD5=c412b1531adef1be7a645ab734f86acc
+SRC=https://www.iana.org/time-zones/repository/releases/tzdata2018e.tar.gz
+SRCMD5=97d654f4d7253173b3eeb76a836dd65e
 STRIP=no
+OPTIONS=bootstrap|release
+DEFAULTS=release

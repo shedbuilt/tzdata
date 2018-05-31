@@ -1,12 +1,11 @@
 #!/bin/bash
-ZONEINFO="${SHED_FAKE_ROOT}/usr/share/zoneinfo"
-mkdir -pv $ZONEINFO/{posix,right}
-for tz in etcetera southamerica northamerica europe africa antarctica  \
+SHED_PKG_LOCAL_ZONEINFO="${SHED_FAKE_ROOT}/usr/share/zoneinfo"
+mkdir -pv "$SHED_PKG_LOCAL_ZONEINFO"/{posix,right}
+for SHED_PKG_LOCAL_TZ in etcetera southamerica northamerica europe africa antarctica  \
           asia australasia backward pacificnew systemv; do
-    zic -L /dev/null   -d $ZONEINFO       -y "sh yearistype.sh" ${tz} && \
-    zic -L /dev/null   -d $ZONEINFO/posix -y "sh yearistype.sh" ${tz} && \
-    zic -L leapseconds -d $ZONEINFO/right -y "sh yearistype.sh" ${tz} || exit 1
+    zic -L /dev/null   -d "$SHED_PKG_LOCAL_ZONEINFO"       -y "sh yearistype.sh" ${SHED_PKG_LOCAL_TZ} &&
+    zic -L /dev/null   -d "$SHED_PKG_LOCAL_ZONEINFO"/posix -y "sh yearistype.sh" ${SHED_PKG_LOCAL_TZ} &&
+    zic -L leapseconds -d "$SHED_PKG_LOCAL_ZONEINFO"/right -y "sh yearistype.sh" ${SHED_PKG_LOCAL_TZ} || exit 1
 done
-cp -v zone.tab zone1970.tab iso3166.tab "$ZONEINFO"
-zic -d "$ZONEINFO" -p America/New_York || exit 1
-unset ZONEINFO
+cp -v zone.tab zone1970.tab iso3166.tab "$SHED_PKG_LOCAL_ZONEINFO" &&
+zic -d "$SHED_PKG_LOCAL_ZONEINFO" -p America/New_York || exit 1
